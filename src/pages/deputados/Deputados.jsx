@@ -68,14 +68,18 @@ const Deputados = () => {
             
 
             </div>
-
+                
             <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>{deputado.nomeCivil}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                   <p>Email: {/*deputado.ultimoStatus.email*/}</p>
-                   <p>Telefone: {/*deputado.ultimoStatus.gabinete.telefone*/}</p>
+                <Modal.Body >
+                   {deputado.id &&
+                        <>
+                                <p>Email: {deputado.ultimoStatus.email}</p>
+                                <p>Telefone: {deputado.ultimoStatus.gabinete.telefone}</p>
+                        </>
+                    }
                 </Modal.Body>
                 <Modal.Footer>
                     <Link to={"/filmes/" + deputado.id}>

@@ -20,7 +20,7 @@ const menu = () => {
                 </Navbar.Brand>
                 
                 <Nav className="me-auto">
-                <Link className='nav-link' to="/partido">Partido</Link>
+                <Link className='nav-link' to="/partido">Sobre nós</Link>
                 <Link className='nav-link' to="/deputados">Deputados</Link>
                 <Link className='nav-link' to="/contato">Contato</Link>
                 <Link className='nav-link' to="/transparencia">Transparência</Link>
