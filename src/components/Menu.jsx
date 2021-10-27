@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import logo from './Avante_(partido_político).png'
 
 const menu = () => {
     return (
@@ -8,11 +9,22 @@ const menu = () => {
             
             <Navbar bg="dark" variant="dark">
                 <Container>
-                <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                <Navbar.Brand href="/" >
+                    <img
+                        src={logo}
+                        width="125"
+                        height="44,5"
+                        className="d-inline-block align-top"
+                        alt=""
+                    />
+                </Navbar.Brand>
+                
                 <Nav className="me-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#features">Features</Nav.Link>
-                <Nav.Link href="#pricing">Pricing</Nav.Link>
+                <Link className='nav-link' to="/partido">Partido</Link>
+                <Link className='nav-link' to="/deputados">Deputados</Link>
+                <Link className='nav-link' to="/contato">Contato</Link>
+                <Link className='nav-link' to="/transparencia">Transparência</Link>
+
                 </Nav>
                 </Container>
             </Navbar>
