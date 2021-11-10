@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap'
 import { Route, Switch } from 'react-router'
 import Contato from './pages/contato/Contato'
 import Deputados from './pages/deputados/Deputados'
+import DeputadosInfo from './pages/deputados/DeputadosInfo'
 import Partido from './pages/partido/Partido'
 import Transparencia from './pages/partido/Transparencia'
 
@@ -15,7 +16,8 @@ const Rotas = () => {
 
                     <Route exact path="/" component={Partido} />   
                     <Route exact path="/partido" component={Partido} />   
-                    <Route exact path="/deputados" component={Deputados} />  
+                    <Route exact path="/deputados" component={Deputados} />
+                    <Route exact path="/deputados/:id" component={DeputadosInfo} />
                     <Route exact path="/contato" component={Contato} />   
                     <Route exact path="/transparencia" component={Transparencia} />   
 
