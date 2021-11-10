@@ -11,7 +11,7 @@ import ContatoService from '../../services/ContatoService'
 const Contato = (props) => {
 
     const variant = props.variant ? props.variant : 'info'
-    const teste = localStorage.getItem('contato')
+    const teste = localStorage.getItem('contato')    
     console.log(JSON.parse(teste))
 
     
@@ -32,7 +32,7 @@ const Contato = (props) => {
         const id = props.match.params.id
         id ? ContatoService.update(dados, id) : ContatoService.create(dados)
         window.confirm('Mensagem enviada com sucesso!')
-        props.history.push('/')
+        props.history.push('/contato')
     }
 
     return (
