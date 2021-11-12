@@ -11,7 +11,6 @@ const DeputadosInfo = (props) => {
     setAno({ value: event.target.value });
   }
 
-  console.log(ano);
   useEffect(() => {
     const id = props.match.params.id;
 
@@ -23,9 +22,12 @@ const DeputadosInfo = (props) => {
       `/deputados/${id}/despesas?itens=10000&ano=${ano.value}`
     ).then((resultado) => {
       setDespesas(resultado.data.dados);
-      console.log(resultado.data.dados);
     });
   }, [props, ano]);
+
+  const totalDespesas = despesas.reduce((acumulator, despesa) => {
+    return (acumulator += despesa.valorLiquido);
+  }, 0);
 
   return (
     <>
@@ -90,9 +92,12 @@ const DeputadosInfo = (props) => {
                     value={ano.value}
                     onChange={handleChange}
                   >
-                    <option value={ano[0]}>2021</option>
-                    <option value={ano[1]}>2020</option>
-                    <option value={ano[2]}>2019</option>
+                    <option disabled selected value="">
+                      Escolha o ano de interesse
+                    </option>
+                    <option value={ano[ano.value]}>2021</option>
+                    <option value={ano[ano.value]}>2020</option>
+                    <option value={ano[ano.value]}>2019</option>
                   </Form.Select>
                 </Card.Header>
 
@@ -104,12 +109,13 @@ const DeputadosInfo = (props) => {
                       <th>Nome Fornecedor</th>
                       <th>Tipo</th>
                       <th>Valor</th>
+                      <th>Total</th>
                     </tr>
                   </thead>
 
                   <tbody>
-                    {despesas.map((info) => (
-                      <tr key={info.id}>
+                    {despesas.map((info, index) => (
+                      <tr key={index}>
                         <td></td>
                         <td>{info.dataDocumento}</td>
                         <td>{info.ano}</td>
@@ -118,6 +124,19 @@ const DeputadosInfo = (props) => {
                         <td>{info.valorLiquido}</td>
                       </tr>
                     ))}
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>Total de gastos:</td>
+                      <td>
+                        {totalDespesas.toLocaleString("pt-BR", {
+                          style: "currency",
+                          currency: "BRL",
+                        })}
+                      </td>
+                    </tr>
                   </tbody>
                 </Table>
               </Card>

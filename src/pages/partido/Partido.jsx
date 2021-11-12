@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import ApiDeputados from '../../services/apiBase'
+import ApiDeputados from "../../services/apiBase";
 import "./partido.style.css";
 import dadosComplementares from "./dadosComplementares";
 
 const Partido = () => {
   const [partido, setPartido] = useState([]);
-
 
   useEffect(() => {
     ApiDeputados.get("/partidos/36898").then((response) => {
@@ -13,9 +12,6 @@ const Partido = () => {
     });
   }, []);
 
-  console.log(partido);
-
-  console.log(partido);
   return (
     <>
       <div className="partido-container">
