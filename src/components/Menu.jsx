@@ -28,9 +28,6 @@ const menu = () => {
             <Link className="nav-link" to="/contato">
               Contato
             </Link>
-            <Link className="nav-link" to="/transparencia">
-              Transparência
-            </Link>
           </Nav>
         </Container>
       </Navbar>
